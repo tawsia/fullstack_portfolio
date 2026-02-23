@@ -8,7 +8,9 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Allow frontend (React on port 3000) to call this API
-app.use(cors());
+app.use(cors({
+  origin:"https://fullstackportfolio-ten.vercel.app"
+}));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
