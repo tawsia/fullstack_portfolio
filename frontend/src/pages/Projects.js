@@ -66,7 +66,7 @@ const Projects = () => {
             <article key={project.id} className="project-card">
               {project.image_url && (
                 <div className="project-image">
-                  <img src={`http://localhost:5000/uploads/${project.image_url}`} alt={project.title} />
+                  <img src={project.image_url} alt={project.title} />
                 </div>
               )}
               <div className="project-content">
