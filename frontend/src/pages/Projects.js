@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+const API_URL = process.env.REACT_APP_API_URL || 'https://fullstack-portfolio-q4cb.onrender.com/api';
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
