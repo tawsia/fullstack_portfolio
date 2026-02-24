@@ -33,7 +33,7 @@ const createItem = async (req, res) => {
 // GET all projects
 const getProjects = async (req, res) => {
   try {
-    const [rows] = await db.query('SELECT * FROM projects ORDER BY created_at DESC');
+    const [rows] = await db.query('SELECT * FROM projects ORDER BY id DESC');
     res.json(rows);
   } catch (err) {
     console.error(err);
