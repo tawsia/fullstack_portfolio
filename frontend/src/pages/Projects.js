@@ -32,7 +32,7 @@ const Projects = () => {
     
         <section className="page-header">
           <h1>My Projects</h1>
-          <p>Loading projects...</p>
+          <div className="spinner"></div>
         </section>
       </div>
     );
