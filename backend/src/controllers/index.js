@@ -3,7 +3,7 @@ const db = require('../db');
 // ===== ITEMS (keeping for reference) =====
 const getItems = async (req, res) => {
   try {
-    const [rows] = await db.query('SELECT * FROM items ORDER BY created_at DESC');
+    const [rows] = await db.query('SELECT * FROM items ORDER BY id DESC');
     res.json(rows);
   } catch (err) {
     console.error(err);
