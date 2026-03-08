@@ -10,20 +10,18 @@ const Contact = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
     // For now we just log; later we will send this to the backend
-    await fetch(`${API_URL}/contact`, {
+   try{ const res= await fetch(`${API_URL}/contact`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ name, email, message }),
     });
+    const data = await response.json();
+    console.log('Contact form response:', data);
     setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setName('');
-      setEmail('');
-      setMessage('');
-    }, 3000);
+  }catch (err) {    console.error('Error submitting contact form:', err);
+  }
   };
 
   return (
