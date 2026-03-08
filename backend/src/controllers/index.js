@@ -1,4 +1,5 @@
 const db = require('../db');
+const nodemailer = require('nodemailer');
 
 // ===== ITEMS (keeping for reference) =====
 const getItems = async (req, res) => {
@@ -133,6 +134,35 @@ const deleteProject = async (req, res) => {
   }
 };
 
+const sendMessage = async (req, res) => {
+  const { name, email, message } = req.body;
+
+  try{
+    // Create a transporter using your email service credentials
+    const transporter = nodemailer.createTransport({
+      service: 'Gmail', // e.g., Gmail, Outlook
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    });
+
+    // Define the email options
+    await transporter.sendMail({
+      from: email,
+      to: process.env.EMAIL_USER, // Your email address
+      subject: `Portfolio Contact from ${name}`,
+      text:`
+      Name: ${name},
+      Email: ${email},
+      Message: ${message}`,
+    });
+ res.json({success: true, message: 'Message sent successfully'});
+  }catch (error) {
+    console.error('Error sending email:', error);
+    res.status(500).json({ error: 'Could not send message' });
+  }
+};
 module.exports = {
   getItems,
   createItem,
@@ -141,4 +171,5 @@ module.exports = {
   createProject,
   updateProject,
   deleteProject,
+  sendMessage,
 };

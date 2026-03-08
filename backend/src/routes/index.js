@@ -7,11 +7,12 @@ const {
   getProjectById,
   createProject,
   updateProject,
-  deleteProject
+  deleteProject,
+  sendMessage
 } = require('../controllers/index');
 
 // All these routes are under /api (see app.js: app.use('/api', routes))
-
+router.post('/contact', sendMessage);  // Contact form route
 // Items routes (keeping for reference)
 router.get('/items', getItems);
 router.post('/items', createItem);

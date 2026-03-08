@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+const API_URL = process.env.REACT_APP_API_URL || 'https://fullstack-portfolio-q4cb.onrender.com/api';
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -6,10 +7,16 @@ const Contact = () => {
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // For now we just log; later we will send this to the backend
-    console.log({ name, email, message });
+    await fetch(`${API_URL}/contact`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ name, email, message }),
+    });
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
