@@ -158,7 +158,8 @@ const sendMessage = async (req, res) => {
       text:`
       Name: ${name},
       Email: ${email},
-      Message: ${message}`,
+      Message: ${message}
+      `
     });
  res.json({success: true, message: 'Message sent successfully'});
   }catch (error) {
