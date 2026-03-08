@@ -140,7 +140,10 @@ const sendMessage = async (req, res) => {
   try{
     // Create a transporter using your email service credentials
     const transporter = nodemailer.createTransport({
-      service: 'Gmail', // e.g., Gmail, Outlook
+     host: 'smtp.gmail.com',
+      port: 587,
+      secure: false, // true for 465, false for other ports
+       // e.g., Gmail, Outlook
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
@@ -149,7 +152,7 @@ const sendMessage = async (req, res) => {
 
     // Define the email options
     await transporter.sendMail({
-      from: email,
+      from: process.env.EMAIL_USER, // Your email address
       to: process.env.EMAIL_USER, // Your email address
       subject: `Portfolio Contact from ${name}`,
       text:`
