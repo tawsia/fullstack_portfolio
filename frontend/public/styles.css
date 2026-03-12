@@ -987,6 +987,9 @@ body {
 
 .project-tech {
   margin: 1rem 0;
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .project-tech strong {
