@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-const API_URL = process.env.REACT_APP_API_URL || 'https://fullstack-portfolio-q4cb.onrender.com/api';
+import emailjs from "@emailjs/browser";
+
 
 const Contact = () => {
   const [name, setName] = useState('');
@@ -7,21 +8,33 @@ const Contact = () => {
   const [message, setMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     // For now we just log; later we will send this to the backend
-   try{ const res= await fetch(`${API_URL}/contact`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name, email, message }),
-    });
-    const data = await response.json();
-    console.log('Contact form response:', data);
+   emailjs.send(
+    "service_ib4js92",
+    "template_25o2w06",
+    {
+      from_name: name,
+      to_name: "Tawsia",
+     email: email,
+      message: message
+    },
+    "Oxyp5ch0LX_5slqJa"
+  )
+  .then(()=>{
     setSubmitted(true);
-  }catch (err) {    console.error('Error submitting contact form:', err);
-  }
+    setName('');
+    setEmail('');
+    setMessage('');
+
+    setTimeout(() => {
+      setSubmitted(false);
+    }, 3000);
+  })
+  .catch((err)=>{
+    console.error('Failed to send message:', err);
+  });
   };
 
   return (
@@ -44,7 +57,7 @@ const Contact = () => {
               <span className="contact-icon">📧</span>
               <div>
                 <h3>Email</h3>
-                <a href="mailto:tawsiarasool32@gmail.com">tawsiarasool32@gmail.com</a>
+                <a href="mailto:tawsairasool62@gmail.com">tawsiarasool32@gmail.com</a>
               </div>
             </div>
 
