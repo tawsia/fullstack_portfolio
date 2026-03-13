@@ -740,7 +740,7 @@ body {
 
 .dsa-achievements {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
@@ -800,7 +800,16 @@ body {
   color: #6b7280;
   font-style: italic;
 }
+@media (max-width: 480px) {
+  .dsa-achievements {
+    grid-template-columns: 1fr;
+   gap: 1.2rem;
+  }
 
+  .dsa-stat{
+    padding: 1.8rem 1.5rem;
+  }
+}
 /* === CODING PROFILES (SOFT PURPLE THEME) === */
 
 .coding-profiles {
@@ -816,7 +825,7 @@ body {
 
 .coding-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
 }
 
