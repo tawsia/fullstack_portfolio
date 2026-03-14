@@ -23,7 +23,7 @@ const Home = () => {
       <section className="hero">
         <div className="hero-content">
           <h1 className="hero-title">
-           {text}<span className="name-highlight">{name}</span>
+           {text} <span className="highlight">{name}</span>
           </h1>
           <p className="hero-subtitle">Full-Stack Developer & DSA Enthusiast</p>
           <p className="hero-description">
