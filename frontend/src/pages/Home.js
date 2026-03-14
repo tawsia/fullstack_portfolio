@@ -4,7 +4,8 @@ import Counter from "../components/Counter";
 
 const Home = () => {
   const [text, setText] = useState('');
-  const fullText = "Hi, I'm Tawsia Rasool";
+  const fullText = "Hi, I'm";
+  const name= "Tawsia Rasool";
   useEffect(() => {
     let index=0;
     const interval = setInterval(() => {
@@ -22,7 +23,7 @@ const Home = () => {
       <section className="hero">
         <div className="hero-content">
           <h1 className="hero-title">
-           {text}
+           {text}<span className="name-highlight">{name}</span>
           </h1>
           <p className="hero-subtitle">Full-Stack Developer & DSA Enthusiast</p>
           <p className="hero-description">
