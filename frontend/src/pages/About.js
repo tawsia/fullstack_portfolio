@@ -7,9 +7,9 @@ const About = () => {
       <section className="page-header">
         <h1>About Me</h1>
         <p className="about-intro">
-          I'm a passionate DSA enthusiast and full-stack developer who loves solving problems and building things that matter.
-          Solved 400+ problems on LeetCode & GeeksforGeeks, currently working through NeetCode150.
-          Currently a teacher at Sidrah International Convent School while building real-world projects.
+          I'm a passionate DSA enthusiast and full-stack developer who enjoys solving problems and building things that matter.
+          I have solved 400+ problems on platforms like LeetCode & GeeksforGeeks and I'm currently working through NeetCode150 roadmap to strengthen my problem-solving skills.
+          I love turning ideas into reality through code and I'm always eager to learn new technologies and improve my craft.
         </p>
       </section>
 

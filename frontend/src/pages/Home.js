@@ -1,20 +1,32 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import Counter from "../components/Counter";
 
 const Home = () => {
+  const [text, setText] = useState('');
+  const fullText = "Hi, I'm Tawsia Rasool";
+  useEffect(() => {
+    let index=0;
+    const interval = setInterval(() => {
+      setText(fullText.slice(0, index+1));
+      index++;
+      if(index === fullText.length) {
+        clearInterval(interval);
+      }
+    }, 80);
+    return () => clearInterval(interval);
+  }, []);
   return (
     <div className="home-page">
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
           <h1 className="hero-title">
-            Hi, I'm <span className="highlight">Tawsia Rasool</span>
+           {text}
           </h1>
           <p className="hero-subtitle">Full-Stack Developer & DSA Enthusiast</p>
           <p className="hero-description">
-          I am a teacher at Sidrah International Convent School and a self-motivated developer passionate about structured problem-solving and lifelong learning. I build practical web applications with clarity and purpose, and with over 400 coding problems solved,
-           I continuously refine my technical skills and analytical thinking.
+          I am a passionate full-stack developer and DSA enthusiast who loves solving problems and building real-world web applications. 
           </p>
           <div className="hero-buttons">
             <Link to="/projects" className="btn btn-primary">
